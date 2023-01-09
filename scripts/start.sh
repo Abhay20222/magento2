@@ -1,5 +1,8 @@
 #!/bin/bash
 cd /var/www/html/
+sudo cp magento2/magento.conf /etc/nginx/sites-enabled/magento.conf
+sudo rm -rf /etc/nginx/sites-enabled/default
+sudo systemctl start nginx
 sudo chmod -R 777 magento2/
 sudo chown -R www-data:www-data magento2/
 cd magento2/
