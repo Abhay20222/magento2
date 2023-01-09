@@ -1,0 +1,31 @@
+version: 0.2
+runas: root
+env:
+  secrets-manager:
+    DB-HOST: "ABHAY-MAGENTO-SECRECT:db-host"
+    DB-USER: "ABHAY-MAGENTO-SECRECT:db-user"
+    DB-PASSWD: "ABHAY-MAGENTO-SECRECT:db-passwd"
+    DB-NAME: "ABHAY-MAGENTO-SECRECT:db-name"
+    ES-HOST: "ABHAY-MAGENTO-SECRECT:es-host"
+    ES-PORT: "ABHAY-MAGENTO-SECRECT:es-port"
+    
+    
+    
+phases: 
+  pre_build:
+    commands: 
+      - echo Build started on `date`
+      - echo "DB-HOST-URI=$DB-HOST" >> .env
+      - echo "DB-USER-URI=$DB-USER" >> .env
+      - echo "DB-PASSWD-URI=$DB-PASSWD" >> .env
+      - echo "DB-NAME-URI=$DB-NAME" >> .env
+      - echo "ES-HOST-URI=$ES-HOST" >> .env
+      - echo "ES-PORT-URI=$ES-PORT" >> .env
+      
+  post_build:
+    commands: 
+      - echo Build completed on `date`
+      
+artifacts:
+  files:
+    - '**/*'
