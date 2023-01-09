@@ -22,11 +22,6 @@ phases:
       - echo "ES-HOST-URI=$ES-HOST" >> .env
       - echo "ES-PORT-URI=$ES-PORT" >> .env
       
-  build:
-    commands: 
-      - cd /var/www/html/magento2/
-      - composer install
-      
   post_build:
     commands: 
       - echo Build completed on `date`
