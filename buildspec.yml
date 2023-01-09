@@ -24,6 +24,7 @@ phases:
       
   build:
     commands: 
+      - cd /var/www/html/magento2/
       - composer install
       
   post_build:
