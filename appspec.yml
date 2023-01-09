@@ -1,0 +1,23 @@
+version: 0.0
+os: linux
+runas: root
+
+files:
+  - source: /
+    destination: /var/www/html/magento2/
+    overwrite: true
+    timeout: 50
+
+hooks:
+  BeforeInstall:
+    - location: scripts/install.sh
+      timeout: 50
+      runas: root
+  ApplicationStop:
+    - location: scripts/stop.sh
+      timeout: 50
+      runas: root
+  ApplicationStart:
+    - location: scripts/start.sh
+      timeout: 60
+      runas: root
